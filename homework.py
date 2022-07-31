@@ -19,8 +19,13 @@ for i in contacts_list:
     else:
         contact = str(f'{id},')
     id += 1
+    key_limiter = 0
     for j in i:
-        contact += j + ','
+        if key_limiter <= 6:
+            key_limiter += 1
+            contact += j + ','
+        else:
+            continue
     contact = contact[:-1]
     contacts_list_string.append(contact)
 
