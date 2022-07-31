@@ -1,5 +1,6 @@
 import re
 import csv
+from pprint import pprint
 
 # clear phonebook.csv from old data
 with open('phonebook.csv', 'w'):
@@ -19,12 +20,14 @@ for i in contacts_list:
     else:
         contact = str(f'{id},')
     id += 1
+    # key limiter does not allow to take more than 7 "columns"
     key_limiter = 0
     for j in i:
         if key_limiter <= 6:
             key_limiter += 1
             contact += j + ','
         else:
+            key_limiter += 1
             continue
     contact = contact[:-1]
     contacts_list_string.append(contact)
@@ -36,7 +39,7 @@ for i in contacts_list_string:
 
 # text generator to hregex101.com
 # for i in contacts_list_string:
-    # print(i)
+#     print(i)
 
 # raw contacts list generator
 first_string = 0
